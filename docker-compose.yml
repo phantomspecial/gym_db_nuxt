@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  db:
+    container_name: gym_db_database
+    image: mysql:5.7
+    environment:
+      - TZ=Asia/Tokyo
+    volumes:
+      - ./back/tmp/db:/var/lib/mysql
+
+  back:
+    container_name: gym_db_rails
+    build: back/
+    volumes:
+      - ./back:/app
+    depends_on:
+      - db
+
+  front:
+    container_name: gym_db_nuxt
+    build: front/
+    command: npm run dev
+    volumes:
+      - ./front:/app
+    ports:
+      - 8080:3000
+    depends_on:
+      - back
