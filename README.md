@@ -1,0 +1,1 @@
+# GymDB Nuxt Version
