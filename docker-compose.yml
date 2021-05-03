@@ -6,6 +6,7 @@ services:
     image: mysql:5.7
     environment:
       - TZ=Asia/Tokyo
+      - MYSQL_ROOT_PASSWORD=password
     volumes:
       - ./back/tmp/db:/var/lib/mysql
 
