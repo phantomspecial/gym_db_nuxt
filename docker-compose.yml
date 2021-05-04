@@ -17,6 +17,8 @@ services:
       - ./back:/app
     depends_on:
       - db
+    stdin_open: true
+    tty: true
 
   front:
     container_name: gym_db_nuxt
